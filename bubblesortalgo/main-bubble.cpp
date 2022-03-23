@@ -6,4 +6,5 @@ using namespace std;
 int main() {
 	int * arr = generateRandomArray(20);
 	bubbleSort(arr, 20);
+	return 0;
 }
