@@ -1,6 +1,4 @@
-#include "header.h"
-#include <thread>
-#include <chrono>
+#include "functions.h"
 
 int findMax(int Arr[], const int SIZE) {
 	int max = 0;
@@ -23,23 +21,18 @@ void displaySet(int Arr[], const int SIZE) {
 	}
 }
 
-void swap(int & a, int & b) {
-	int temp = a;
-	a = b;
-	b = temp;
-	return;
-}
-
-void bubbleSort(int Arr[], const int SIZE) {
-	int i, j;
-	for(i = 0; i < SIZE-1; i++) {
-		system("clear");
-		displaySet(Arr, SIZE);
-		this_thread::sleep_for(chrono::milliseconds(100));
-		for(j=0; j<SIZE-i-1; j++) {
-			if(Arr[j] > Arr[j+1]) {
-				swap(Arr[j], Arr[j+1]);
+int * generateRandomArray(const int SIZE) {
+	int * array = new int[SIZE];
+	for(int i = 0; i < SIZE; i++) {
+		if (i != 0) {
+			int temp = rand() % SIZE+1;
+			while(temp == array[i-1]) {
+				temp = rand()%SIZE+1;
 			}
+			array[i] = temp;
+		} else {
+			array[i] = rand() % SIZE+1;
 		}
 	}
+	return array;
 }
