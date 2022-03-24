@@ -12,6 +12,10 @@ int findMax(int Arr[], const int SIZE) {
 
 void displaySet(int Arr[], const int SIZE) {
 	int level = 1;
+	for(int i = 0; i < SIZE; i++) {
+		cout << "-";
+	}
+	cout << endl;
 	for (int i = 0; i < findMax(Arr, SIZE); i++) {
 		for(int r = 0; r < SIZE; r++) {
 			if (Arr[r] >= level) {cout << "|";} else {cout << " ";}
